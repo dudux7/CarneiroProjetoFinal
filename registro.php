@@ -15,7 +15,7 @@ $stmt->bind_param("sssss", $nome, $telefone, $email, $usuario, $senha);
 
 if ($stmt->execute()) {
     $_SESSION['usuario'] = $usuario;
-    header("Location: home.html");
+    header("Location: homeCliente.html");
     exit();
 } else {
     echo "Erro ao registrar: " . $stmt->error;
