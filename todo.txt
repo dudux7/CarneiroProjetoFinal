@@ -1,0 +1,3 @@
+Cadastro de barbeiro, fazer arquivo registroBarbeiro.php e .html
+Fazer arquivo de gerenciamento de sessão?
+Pagina de exibição de agendamentos, com opção de deletar

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro</title>
+  <link rel='stylesheet' href="registro.css">
+</head>
+<body>
+<div class="container" id="container">
+    <div class="form-container sign-up-container">
+        <form action="registro.php" method="post">
+            <h1>Cadastrar</h1>
+            <span>Santos Barbeshop</span>
+            <br>
+            <label>Nome</label>
+            <input type="text" name="nome" required>
+            <label>Telefone</label>
+            <input type="text" name="telefone" required>
+            <label>Email</label>
+            <input type="email" name="email" required>
+            <label>Usuário</label>
+            <input type="text" name="usuario" required>
+            <label>Senha</label>
+            <input type="password" name="senha" required>
+            <button>Cadastrar</button>
+        </form>
+    </div>
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-right">
+                <h1>Bem-vindo de volta!</h1>
+                <p>Para continuar, faça login em sua conta.</p><br>
+                <button class="ghost" id="signIn" onclick="window.location.href='login.html';">
+                    Entrar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+    
