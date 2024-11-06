@@ -17,7 +17,6 @@ CREATE TABLE clientes (
 CREATE TABLE barbeiros (
     id INT AUTO_INCREMENT PRIMARY KEY,
     idPessoa INT,
-    dataContratacao DATE,
     especialidade VARCHAR(100),
     status ENUM('ativo', 'inativo') DEFAULT 'ativo',
     FOREIGN KEY (idPessoa) REFERENCES pessoas(id) ON DELETE CASCADE
