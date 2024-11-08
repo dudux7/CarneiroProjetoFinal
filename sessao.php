@@ -7,3 +7,5 @@
 		die("Usuário não autenticado!
 		<a href='login.html'>Logar</a>");
 	}
+
+	

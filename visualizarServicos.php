@@ -1,6 +1,11 @@
 <?php
 require_once 'conexao.php';
 
+require_once 'verificarSessao.php';
+
+// Verifica se o usuário está logado e se ele é admin
+verificar_sessao(true); // Requer que seja administrador
+
 
 $servicos = [];
 
@@ -45,7 +50,7 @@ mysqli_close($conexao);
                 <td><?php echo htmlspecialchars($servico['duracao']); ?></td>
                 <td><?php echo htmlspecialchars($servico['idBarbeiro']); ?></td>
                 <td>
-                    <a href="deletarServico.php?id=<?php echo htmlspecialchars($servico['id']); ?>">Deletar</a>
+                    <a href="deletarServicos.php?id=<?php echo htmlspecialchars($servico['id']); ?>">Deletar</a>
                 </td>
             </tr>
             <?php endforeach; ?>

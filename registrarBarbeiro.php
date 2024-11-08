@@ -1,32 +1,19 @@
 <?php
+require_once 'conexao.php';
+require_once 'verificarSessao.php';
 
-$usuario = $_SESSION['usuario'] ?? null;
-
-if ($usuario === null || $usuario['adm'] != '1') { // Aqui verificamos se adm é igual a '1'
-    die("Acesso negado! Esta área é restrita para administradores. <a href='login.html'>Logar</a>");
-}
-// Configuração de conexão com o banco de dados
-$host = 'localhost';  // Substitua pelo seu host
-$db = 'barbearia';  // Substitua pelo nome do seu banco de dados
-$user = 'root';  // Substitua pelo seu usuário do banco de dados
-$pass = '';  // Substitua pela sua senha
+// Verifica se o usuário está logado e se ele é admin
+verificar_sessao(true); // Requer que seja administrador
 
 try {
-    // Conectar ao banco de dados
-    $pdo = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
     // Receber dados do formulário
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $nome = $_POST['nome'];
         $telefone = $_POST['telefone'];
         $email = $_POST['email'];
         $usuario = $_POST['usuario'];
-        $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT); // Armazenar a senha de forma segura
+        $senha = $_POST['senha'];
         $especialidade = $_POST['especialidade'];
-
-        // Iniciar transação
-        $pdo->beginTransaction();
 
         // Inserir na tabela 'pessoas'
         $sqlPessoa = "INSERT INTO pessoas (nome, telefone, email, usuario, senha, adm) VALUES (:nome, :telefone, :email, :usuario, :senha, '0')";
@@ -50,16 +37,43 @@ try {
             ':especialidade' => $especialidade
         ]);
 
-        // Confirmar transação
-        $pdo->commit();
-
         echo "Barbeiro adicionado com sucesso!";
     }
 } catch (PDOException $e) {
-    // Verifique se $pdo está definido antes de chamar rollBack
-    if (isset($pdo)) {
-        $pdo->rollBack();
-    }
     echo "Erro: " . $e->getMessage();
 }
 ?>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Barbeiro</title>
+</head>
+<body>
+    <h2>Adicionar Novo Barbeiro</h2>
+    <form action="registrarBarbeiro.php" method="post">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required><br><br>
+
+        <label for="telefone">Telefone:</label>
+        <input type="text" id="telefone" name="telefone"><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="usuario">Usuário:</label>
+        <input type="text" id="usuario" name="usuario" required><br><br>
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required><br><br>
+
+        <label for="especialidade">Especialidade:</label>
+        <input type="text" id="especialidade" name="especialidade"><br><br>
+
+        <button type="submit">Adicionar Barbeiro</button>
+        <br>
+        <a href="homeAdmin.php"
+    </form>
+</body>
+</html>

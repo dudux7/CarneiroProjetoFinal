@@ -17,7 +17,7 @@ if ($res = $result->fetch_assoc()) {
 
    
     if ($res['adm'] == 1) {
-        header("Location: homeAdmin.html");
+        header("Location: homeAdmin.php");
     } else {
         header("Location: homeCliente.html");
     }
