@@ -38,3 +38,17 @@ mysqli_stmt_close($stmtCheck);
 mysqli_close($conexao);
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>salvar</title>
+</head>
+<body>
+    <div>
+    <a href="homeAdmin.php" class="button" id="return-button">Voltar</a>
+    </div>
+</body>
+</html>
+

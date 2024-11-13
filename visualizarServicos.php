@@ -27,6 +27,7 @@ mysqli_close($conexao);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visualizar Serviços</title>
+    <link rel="stylesheet" href="cadastroServicos.css">
 </head>
 <body>
     <h1>Lista de Serviços</h1>
@@ -60,5 +61,8 @@ mysqli_close($conexao);
             </tr>
         <?php endif; ?>
     </table>
+    <div>
+        <a href="homeAdmin.php" class="button" id="return-button">Voltar</a>
+    </div>
 </body>
 </html>

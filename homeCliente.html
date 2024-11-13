@@ -1,15 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
-    <link rel="stylesheet" href="home.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial</title>
+    <link rel="stylesheet" href="homeCliente.css">
 </head>
 <body>
-    <h1>Bem-vindo à sua Home!</h1>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <h2></h2>
+        <div class="nav-links">
+            <a href="agendar.html">Agendar</a>
+            <a href="logout.php">Logout</a>
+        </div>
+    </nav>
 
-    <form action="logout.php" method="post">
-        <button type="submit">Logout</button>
-    </form>
+    <!-- Conteúdo Principal -->
+    <div class="container">
+        <h1>Bem-vindo ao seu painel!</h1>
+        <p>Você pode agendar compromissos, visualizar seu perfil e sair da sua conta facilmente.</p> 
+    </div>
+
 </body>
 </html>

@@ -32,7 +32,7 @@ CREATE TABLE servicos (
     FOREIGN KEY (idBarbeiro) REFERENCES barbeiros(id) ON DELETE SET NULL
 );
 
-CREATE TABLE agendamentos (
+/*CREATE TABLE agendamentos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     datahora DATETIME NOT NULL,
     idCliente INT,
@@ -41,4 +41,41 @@ CREATE TABLE agendamentos (
     observacoes TEXT,
     FOREIGN KEY (idCliente) REFERENCES clientes(id) ON DELETE CASCADE,
     FOREIGN KEY (idServico) REFERENCES servicos(id) ON DELETE SET NULL
+);*/
+
+CREATE TABLE agendamentos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    datahora DATETIME NOT NULL,
+    idCliente INT,
+    idServico INT,
+    status ENUM('pendente', 'confirmado', 'cancelado', 'concluído') DEFAULT 'pendente',
+    observacoes TEXT,
+    id_data INT NOT NULL,
+    id_horario INT NOT NULL,
+    FOREIGN KEY (idCliente) REFERENCES clientes(id) ON DELETE CASCADE,
+    FOREIGN KEY (idServico) REFERENCES servicos(id) ON DELETE SET NULL,
+    FOREIGN KEY (id_data) REFERENCES datas(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_horario) REFERENCES horarios(id) ON DELETE CASCADE
 );
+
+CREATE TABLE datas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    data DATE NOT NULL UNIQUE,
+    feriado ENUM ('0','1') NOT NULL DEFAULT '0'
+);
+
+CREATE TABLE horarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    horario TIME NOT NULL UNIQUE,
+);
+
+CREATE TABLE data_horario_disponibilidade (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_data INT NOT NULL,
+    id_horario INT NOT NULL,
+    disponivel TINYINT(1) NOT NULL DEFAULT 1,  -- 1 para disponível, 0 para indisponível
+    FOREIGN KEY (id_data) REFERENCES datas(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_horario) REFERENCES horarios(id) ON DELETE CASCADE
+);
+
+/* data precisa receber o id do barbeiro??????*/

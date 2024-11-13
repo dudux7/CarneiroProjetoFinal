@@ -23,6 +23,7 @@ $result = mysqli_query($conexao, $sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Serviço</title>
+    <link rel="stylesheet" href="cadastroServicos.css">
 </head>
 <body>
     <h1>Cadastro de Serviço</h1>
@@ -50,7 +51,10 @@ $result = mysqli_query($conexao, $sql);
             ?>
         </select><br><br>
 
-        <button type="submit">Cadastrar</button>
+        <button class="button" type="submit">Cadastrar</button>
+        <br>
+        <a href="homeAdmin.php" class="button" id="return-button">Voltar</a>
+
     </form>
 
     <?php mysqli_close($conexao); ?>
