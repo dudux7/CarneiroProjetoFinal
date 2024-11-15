@@ -8,22 +8,13 @@
 <body>
     <h1>Agendamento</h1>
     <form action="agendar.php" method="POST">
-        <label for="datahora">Data e Hora:</label>
-        <input type="datetime-local" id="datahora" name="datahora" required><br><br>
+      
 
         <label for="idCliente">ID do Cliente:</label>
         <input type="number" id="idCliente" name="idCliente" required><br><br>
 
         <label for="idServico">ID do Serviço:</label>
         <input type="number" id="idServico" name="idServico" required><br><br>
-
-        <label for="status">Status:</label>
-        <select id="status" name="status">
-            <option value="pendente" selected>Pendente</option>
-            <option value="confirmado">Confirmado</option>
-            <option value="cancelado">Cancelado</option>
-            <option value="concluído">Concluído</option>
-        </select><br><br>
 
         <label for="observacoes">Observações:</label>
         <textarea id="observacoes" name="observacoes"></textarea><br><br>

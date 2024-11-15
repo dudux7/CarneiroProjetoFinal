@@ -15,15 +15,15 @@ try {
         $senha = $_POST['senha'];
         $especialidade = $_POST['especialidade'];
 
-        // Inserir na tabela 'pessoas'
-        $sqlPessoa = "INSERT INTO pessoas (nome, telefone, email, usuario, senha, adm) VALUES (:nome, :telefone, :email, :usuario, :senha, '0')";
+        // Inserir na tabela 'pessoas' com adm = '2'
+        $sqlPessoa = "INSERT INTO pessoas (nome, telefone, email, usuario, senha, adm) VALUES (:nome, :telefone, :email, :usuario, :senha, '2')";
         $stmtPessoa = $pdo->prepare($sqlPessoa);
         $stmtPessoa->execute([
             ':nome' => $nome,
             ':telefone' => $telefone,
             ':email' => $email,
             ':usuario' => $usuario,
-            ':senha' => $senha
+            ':senha' => $senha,
         ]);
 
         // Obter o ID da pessoa recém-inserida
@@ -43,6 +43,7 @@ try {
     echo "Erro: " . $e->getMessage();
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">

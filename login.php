@@ -18,6 +18,8 @@ if ($res = $result->fetch_assoc()) {
    
     if ($res['adm'] == 1) {
         header("Location: homeAdmin.php");
+    } elseif ($res ['adm'] == 2) {
+        header("location: homeBarbeiro.php");
     } else {
         header("Location: homeCliente.html");
     }
