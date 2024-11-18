@@ -28,7 +28,7 @@ verificar_sessao(); // Sem parâmetro para permitir acesso de barbeiros
         <div class="buttons">
             <a href="gerenciarDatas.php" class="button">Gerenciar Datas</a>
             <a href="gerenciarHorarios.php" class="button">Gerenciar Horários</a>
-            <a href="visualizarAgendamentos.php" class="button">Visualizar Agendamentos</a>
+            <a href="agendamentos_barbeiro.php" class="button">Visualizar Agendamentos</a>
         </div>
     </div>
 </body>
