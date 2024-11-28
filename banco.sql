@@ -63,6 +63,22 @@
         FOREIGN KEY (id_horario) REFERENCES horarios(id) ON DELETE CASCADE
     );
 
+    DELIMITER $$
+
+    
+    CREATE TRIGGER atualizar_agendamento_ao_disponibilizar_horario
+    AFTER UPDATE ON horarios
+    FOR EACH ROW
+    BEGIN
+        -- Verifica se o status do horário foi alterado para 'disponível'
+        IF NEW.status = 'disponível' THEN
+            -- Atualiza o status do agendamento para 'cancelado' correspondente ao horário
+            DELETE FROM agendamentos WHERE id_horario = NEW.id;
+        END IF;
+    END$$
+
+    DELIMITER ;
+
 
 /*CREATE TABLE agendamentos (
     id INT AUTO_INCREMENT PRIMARY KEY,
